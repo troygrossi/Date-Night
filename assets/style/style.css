@@ -1,7 +1,26 @@
 :root {
-  --gradient: linear-gradient(
+  --gradient-header: linear-gradient(
     180deg,
     rgba(253, 1, 1, 0.747),
+    rgba(7, 5, 4, 0.705)
+  );
+  --gradient-dinner: linear-gradient(
+    180deg,
+    rgba(253, 1, 1, 0.637),
+    rgba(126, 146, 15, 0.411)
+  );
+  --gradient-cocktail: linear-gradient(
+    180deg,
+    rgba(253, 1, 1, 0.637),
+    rgba(15, 46, 146, 0.411)
+  );
+  --gradient-movie: linear-gradient(
+    180deg,
+    rgba(253, 1, 1, 0.637),
+    rgba(6, 7, 1, 0.411)
+  );
+  --background-food-drink: linear-gradient(
+    rgba(122, 97, 97, 0.747),
     rgba(7, 5, 4, 0.705)
   );
 }
@@ -16,7 +35,8 @@
   justify-content: center;
   text-align: center;
   width: 100%;
-  background-image: var(--gradient);
+  background-image: var(--gradient-header);
+  cursor: default;
 }
 .header h1 {
   width: 100%;
@@ -24,10 +44,13 @@
   font-size: 60px;
   color: white;
 }
+
 .progress-container {
   margin-top: 100px;
+  margin-bottom: 50px;
   margin-left: 13%;
-  width: 950px;
+  width: 1140px;
+  cursor: default;
 }
 progress {
   -webkit-transform-origin: 0 100%;
@@ -52,10 +75,69 @@ progress {
   border-width: 5px;
   border-radius: 20px;
 }
+.section-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 70px;
+  cursor: default;
+}
+.section-header h2 {
+  font-weight: bold;
+  font-size: 40px;
+  color: white;
+}
+#dinner-header {
+  background-image: var(--gradient-dinner);
+}
+#cocktail-header {
+  background-image: var(--gradient-cocktail);
+}
+#movie-header {
+  background-image: var(--gradient-movie);
+}
 
 .select-nav {
   width: 35%;
   margin: 0 auto 0 auto;
+}
+#food-nav .tabs span {
+  color: white;
+}
+#food-nav .tabs a {
+  background-color: rgba(201, 8, 8, 0.719) !important;
+}
+#food-nav .tabs a:hover {
+  background-color: rgba(187, 3, 3, 0.507) !important;
+}
+#food-nav .is-active a {
+  background-color: rgba(189, 8, 8, 0.568) !important;
+}
+#drink-nav .tabs span {
+  color: white;
+}
+#drink-nav .tabs a {
+  background-color: rgba(5, 50, 175, 0.719) !important;
+}
+#drink-nav .tabs a:hover {
+  background-color: rgba(4, 33, 161, 0.507) !important;
+}
+#drink-nav .is-active a {
+  background-color: rgba(4, 36, 177, 0.568) !important;
+}
+#movie-nav .tabs span {
+  color: white;
+}
+#movie-nav .tabs a {
+  background-color: rgba(0, 0, 0, 0.719) !important;
+}
+#movie-nav .tabs a:hover {
+  background-color: rgba(0, 0, 0, 0.507) !important;
+}
+#movie-nav .is-active a {
+  background-color: rgba(0, 0, 0, 0.568) !important;
 }
 #food-name {
   width: 33.3%;
@@ -66,19 +148,42 @@ progress {
 #food-surprise {
   width: 33.3%;
 }
+#drink-name {
+  width: 33.3%;
+}
+#drink-type {
+  width: 33.3%;
+}
+#drink-surprise {
+  width: 33.3%;
+}
+#movie-genre {
+  width: 33.3%;
+}
+#movie-year {
+  width: 33.3%;
+}
+#movie-surprise {
+  width: 33.3%;
+}
 
 .button-container {
+  box-sizing: content-box;
   width: 35%;
   border-style: solid;
+  border-radius: 10px;
+  border-width: 10px;
+  border-color: grey;
   height: 200px;
-  margin: 0 auto 100px auto;
+  margin: 0 auto 50px auto;
 }
 /* food-buttons */
 #buttons-food-name {
-  height: 192px;
+  height: 200px;
   display: flex;
   flex-wrap: wrap;
   overflow-y: scroll;
+  background-image: var(--background-food-drink);
 }
 #buttons-food-name button {
   margin: 10px 10px 10px;
@@ -87,10 +192,11 @@ progress {
   cursor: pointer;
 }
 #buttons-food-type {
-  height: 192px;
+  height: 200px;
   display: flex;
   flex-wrap: wrap;
   overflow-y: scroll;
+  background-image: var(--background-food-drink);
   display: none;
 }
 #buttons-food-type button {
@@ -100,9 +206,10 @@ progress {
   cursor: pointer;
 }
 #buttons-food-surprise {
-  height: 192px;
+  height: 200px;
   display: flex;
   flex-wrap: wrap;
+  background-image: var(--background-food-drink);
   display: none;
 }
 #buttons-food-surprise button {
@@ -110,16 +217,19 @@ progress {
   width: 30%;
   height: 40px;
   font-size: 25px;
+  color: white;
+  background-image: var(--gradient-header);
   cursor: pointer;
 }
 /* food-buttons */
 
 /* drink-buttons */
 #buttons-drink-name {
-  height: 192px;
+  height: 200px;
   display: flex;
   flex-wrap: wrap;
   overflow-y: scroll;
+  background-image: var(--background-food-drink);
 }
 #buttons-drink-name button {
   margin: 10px 10px 10px;
@@ -128,10 +238,11 @@ progress {
   cursor: pointer;
 }
 #buttons-drink-type {
-  height: 192px;
+  height: 200px;
   display: flex;
   flex-wrap: wrap;
   overflow-y: scroll;
+  background-image: var(--background-food-drink);
   display: none;
 }
 #buttons-drink-type button {
@@ -141,9 +252,10 @@ progress {
   cursor: pointer;
 }
 #buttons-drink-surprise {
-  height: 192px;
+  height: 200px;
   display: flex;
   flex-wrap: wrap;
+  background-image: var(--background-food-drink);
   display: none;
 }
 #buttons-drink-surprise button {
@@ -151,16 +263,19 @@ progress {
   width: 30%;
   height: 40px;
   font-size: 25px;
+  color: white;
+  background-image: var(--gradient-header);
   cursor: pointer;
 }
 /* drink-buttons */
 
 /* movie-buttons */
 #buttons-movie-genre {
-  height: 192px;
+  height: 200px;
   display: flex;
   flex-wrap: wrap;
   overflow-y: scroll;
+  background-image: var(--background-food-drink);
 }
 #buttons-movie-genre button {
   margin: 10px 10px 10px;
@@ -169,10 +284,11 @@ progress {
   cursor: pointer;
 }
 #buttons-movie-year {
-  height: 192px;
+  height: 200px;
   display: flex;
   flex-wrap: wrap;
   overflow-y: scroll;
+  background-image: var(--background-food-drink);
   display: none;
 }
 #buttons-movie-year button {
@@ -182,9 +298,10 @@ progress {
   cursor: pointer;
 }
 #buttons-movie-surprise {
-  height: 192px;
+  height: 200px;
   display: flex;
   flex-wrap: wrap;
+  background-image: var(--background-food-drink);
   display: none;
 }
 #buttons-movie-surprise button {
@@ -192,5 +309,7 @@ progress {
   width: 30%;
   height: 40px;
   font-size: 25px;
+  color: white;
+  background-image: var(--gradient-header);
   cursor: pointer;
 }
