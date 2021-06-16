@@ -4,10 +4,258 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Group Project</title>
+    <title>Document</title>
     <link rel="stylesheet" href="./assets/style/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"
+    />
   </head>
-  <body
+  <body>
+    <!-- food -->
+    <div class="select-nav" id="food-nav">
+      <div class="tabs is-boxed">
+        <ul>
+          <li id="food-name" class="is-active">
+            <a class="food-name">
+              <span class="food-name"
+                ><i class="fas fa-image" aria-hidden="true"></i
+              ></span>
+              <span class="food-name">Select by Name</span>
+            </a>
+          </li>
+          <li id="food-type">
+            <a class="food-type">
+              <span class="food-type"
+                ><i class="fas fa-music" aria-hidden="true"></i
+              ></span>
+              <span class="food-type">Select by type</span>
+            </a>
+          </li>
+          <li id="food-surprise">
+            <a class="food-surprise">
+              <span class="food-surprise"
+                ><i class="fas fa-film" aria-hidden="true"></i
+              ></span>
+              <span class="food-surprise">Surprise Me!</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="button-container">
+      <div id="buttons-food-name">
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+      </div>
+      <div id="buttons-food-type">
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+      </div>
+      <div id="buttons-food-surprise">
+        <button>Surprise Me!</button>
+      </div>
+    </div>
+    <!-- drink -->
+    <div class="select-nav" id="drink-nav">
+      <div class="tabs is-boxed">
+        <ul>
+          <li id="drink-name" class="is-active">
+            <a class="drink-name">
+              <span class="drink-name"
+                ><i class="fas fa-image" aria-hidden="true"></i
+              ></span>
+              <span class="drink-name">Select by Name</span>
+            </a>
+          </li>
+          <li id="drink-type">
+            <a class="drink-type">
+              <span class="drink-type"
+                ><i class="fas fa-music" aria-hidden="true"></i
+              ></span>
+              <span class="drink-type">Select by type</span>
+            </a>
+          </li>
+          <li id="drink-surprise">
+            <a class="drink-surprise">
+              <span class="drink-surprise"
+                ><i class="fas fa-film" aria-hidden="true"></i
+              ></span>
+              <span class="drink-surprise">Surprise Me!</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="button-container">
+      <div id="buttons-drink-name">
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+      </div>
+      <div id="buttons-drink-type">
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+      </div>
+      <div id="buttons-drink-surprise">
+        <button>Surprise Me!</button>
+      </div>
+    </div>
+    <!-- movie -->
+    <div class="select-nav" id="movie-nav">
+      <div class="tabs is-boxed">
+        <ul>
+          <li id="movie-genre" class="is-active">
+            <a class="movie-genre">
+              <span class="movie-genre"
+                ><i class="fas fa-image" aria-hidden="true"></i
+              ></span>
+              <span class="movie-genre">Select by Genre</span>
+            </a>
+          </li>
+          <li id="movie-year">
+            <a class="movie-year">
+              <span class="movie-year"
+                ><i class="fas fa-music" aria-hidden="true"></i
+              ></span>
+              <span class="movie-year">Select by Year</span>
+            </a>
+          </li>
+          <li id="movie-surprise">
+            <a class="movie-surprise">
+              <span class="movie-surprise"
+                ><i class="fas fa-film" aria-hidden="true"></i
+              ></span>
+              <span class="movie-surprise">Surprise Me!</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="button-container">
+      <div id="buttons-movie-genre">
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+        <button>example1</button>
+      </div>
+      <div id="buttons-movie-year">
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+        <button>example2</button>
+      </div>
+      <div id="buttons-movie-surprise">
+        <button>Surprise Me!</button>
+      </div>
+    </div>
+
     <script src="./assets/script/script.js"></script>
   </body>
 </html>

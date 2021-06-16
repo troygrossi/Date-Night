@@ -1,0 +1,142 @@
+.select-nav {
+  margin-top: 100px !important;
+  width: 35%;
+  margin: 0 auto 0 auto;
+}
+#food-name {
+  width: 33.3%;
+}
+#food-type {
+  width: 33.3%;
+}
+#food-surprise {
+  width: 33.3%;
+}
+
+.button-container {
+  width: 35%;
+  border-style: solid;
+  height: 200px;
+  margin: 0 auto 0 auto;
+}
+/* food-buttons */
+#buttons-food-name {
+  height: 192px;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+}
+#buttons-food-name button {
+  margin: 10px 10px 10px;
+  width: 20%;
+  height: 25px;
+  cursor: pointer;
+}
+#buttons-food-type {
+  height: 192px;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  display: none;
+}
+#buttons-food-type button {
+  margin: 10px 10px 10px;
+  width: 20%;
+  height: 25px;
+  cursor: pointer;
+}
+#buttons-food-surprise {
+  height: 192px;
+  display: flex;
+  flex-wrap: wrap;
+  display: none;
+}
+#buttons-food-surprise button {
+  margin: 70px auto 0 auto;
+  width: 30%;
+  height: 40px;
+  font-size: 25px;
+  cursor: pointer;
+}
+/* food-buttons */
+
+/* drink-buttons */
+#buttons-drink-name {
+  height: 192px;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+}
+#buttons-drink-name button {
+  margin: 10px 10px 10px;
+  width: 20%;
+  height: 25px;
+  cursor: pointer;
+}
+#buttons-drink-type {
+  height: 192px;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  display: none;
+}
+#buttons-drink-type button {
+  margin: 10px 10px 10px;
+  width: 20%;
+  height: 25px;
+  cursor: pointer;
+}
+#buttons-drink-surprise {
+  height: 192px;
+  display: flex;
+  flex-wrap: wrap;
+  display: none;
+}
+#buttons-drink-surprise button {
+  margin: 70px auto 0 auto;
+  width: 30%;
+  height: 40px;
+  font-size: 25px;
+  cursor: pointer;
+}
+/* drink-buttons */
+
+/* movie-buttons */
+#buttons-movie-genre {
+  height: 192px;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+}
+#buttons-movie-genre button {
+  margin: 10px 10px 10px;
+  width: 20%;
+  height: 25px;
+  cursor: pointer;
+}
+#buttons-movie-year {
+  height: 192px;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  display: none;
+}
+#buttons-movie-year button {
+  margin: 10px 10px 10px;
+  width: 20%;
+  height: 25px;
+  cursor: pointer;
+}
+#buttons-movie-surprise {
+  height: 192px;
+  display: flex;
+  flex-wrap: wrap;
+  display: none;
+}
+#buttons-movie-surprise button {
+  margin: 70px auto 0 auto;
+  width: 30%;
+  height: 40px;
+  font-size: 25px;
+  cursor: pointer;
+}
