@@ -1,3 +1,5 @@
+// Troy Grossi
+
 // food navigation
 var foodNavEl = document.querySelector("#food-nav");
 var displayFoodButtons = function (event) {
@@ -109,3 +111,5 @@ var activateMovieTab = function (event) {
   displayMovieButtons(event);
 };
 movieNavEl.addEventListener("click", activateMovieTab);
+
+// Troy Grossi
