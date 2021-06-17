@@ -54,51 +54,6 @@ main {
   color: white;
 }
 
-.progress-container {
-  margin-top: 100px;
-  margin-bottom: 50px;
-  margin-left: 13%;
-  width: 1330px;
-  cursor: default;
-}
-progress {
-  -webkit-transform-origin: 0 100%;
-  -webkit-transform: rotate(90deg);
-  -moz-transform-origin: 0 100%;
-  -moz-transform: rotate(90deg);
-  -ms-transform-origin: 0 100%;
-  -ms-transform: rotate(90deg);
-  transform-origin: 0 100%;
-  transform: rotate(90deg);
-  margin-left: 63px;
-}
-.progress::-webkit-progress-value {
-  background-color: var(--progress-bar) !important;
-  border-style: solid;
-  border-width: 3px;
-}
-.progress::-moz-progress-bar {
-  background-color: var(--progress-bar) !important;
-  border-style: solid;
-  border-width: 3px;
-}
-.progress::-ms-fill {
-  background-color: var(--progress-bar) !important;
-  border-style: solid;
-  border-width: 3px;
-}
-.progress-header {
-  padding: 0 0 7px 5px;
-  font-weight: bold;
-  font-size: 35px;
-  width: 163px;
-  background-color: rgba(128, 0, 0, 0.829);
-  color: white;
-  border-style: solid;
-  border-color: rgba(0, 0, 0, 0.384);
-  border-width: 5px;
-  border-radius: 20px;
-}
 .section-header {
   display: flex;
   justify-content: center;
@@ -130,8 +85,10 @@ progress {
   margin: 50px auto 0 auto;
   background-color: none !important;
 }
+
 .tabs ul {
   background-color: none !important;
+  width: 35%;
 }
 #food-nav .tabs span {
   color: rgb(253, 253, 253);
@@ -163,23 +120,23 @@ progress {
   font-size: 17px;
 }
 #drink-nav .tabs li {
-  background-color: rgba(5, 50, 175, 0.781) !important;
+  background-color: rgba(5, 50, 175, 0.849) !important;
   border-style: solid;
-  border-width: 2px;
+  border-width: 2px !important;
   border-color: rgba(0, 0, 0, 0.808);
   border-radius: 5px;
 }
 #drink-nav .tabs a:hover {
   background-color: rgba(4, 33, 161, 0.897) !important;
   border-style: solid;
-  border-width: 2px;
+  border-width: 2px !important;
   border-color: rgba(0, 0, 0, 0.808);
   border-radius: 5px;
 }
 #drink-nav .is-active a {
   background-color: rgb(12, 50, 219) !important;
   border-style: solid;
-  border-width: 2px;
+  border-width: 2px !important;
   border-color: rgba(37, 36, 36, 0.651);
   border-radius: 5px;
 }
@@ -195,7 +152,7 @@ progress {
   border-radius: 5px;
 }
 #movie-nav .tabs a:hover {
-  background-color: rgba(58, 53, 53, 0.836) !important;
+  background-color: rgba(7, 6, 6, 0.836) !important;
   border-style: solid;
   border-width: 2px;
   border-color: rgba(24, 22, 22, 0.808);
@@ -400,4 +357,73 @@ progress {
   color: white;
   background-image: var(--gradient-header);
   cursor: pointer;
+}
+
+.progress-container {
+  display: flex;
+  align-items: center;
+  margin-top: 100px;
+  margin-bottom: 50px;
+  margin-left: 13%;
+  width: 70%;
+  cursor: default;
+  display: none;
+}
+
+.progress::-webkit-progress-value {
+  background-color: var(--progress-bar) !important;
+  border-style: solid;
+  border-width: 3px;
+}
+.progress::-moz-progress-bar {
+  background-color: var(--progress-bar) !important;
+  border-style: solid;
+  border-width: 3px;
+}
+.progress::-ms-fill {
+  background-color: var(--progress-bar) !important;
+  border-style: solid;
+  border-width: 3px;
+}
+.progress-header {
+  padding: 0 0 7px 5px;
+  margin-right: 10px;
+  font-weight: bold;
+  font-size: 35px;
+  width: 163px;
+  background-color: rgba(128, 0, 0, 0.829);
+  color: white;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.384);
+  border-width: 5px;
+  border-radius: 20px;
+}
+
+.submit-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+  margin-bottom: 50px;
+  width: 100%;
+}
+.submit {
+  font-weight: bold;
+  font-size: 50px;
+  width: 200px;
+  background-color: rgba(11, 128, 0, 0.829);
+  color: rgb(253, 253, 253);
+  border-style: solid;
+  border-color: rgb(5, 80, 2);
+  border-width: 5px;
+  border-radius: 20px;
+}
+.submit:hover {
+  width: 220px;
+  font-size: 55px;
+}
+.submit:active {
+  font-size: 50px;
+  width: 200px;
+  background-color: rgba(8, 95, 0, 0.788);
 }
