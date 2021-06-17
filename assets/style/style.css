@@ -6,15 +6,22 @@
   );
   --gradient-dinner: linear-gradient(
     180deg,
-    rgb(253, 1, 1),
-    rgba(126, 146, 15, 0.979)
+    black,
+    rgb(177, 64, 64),
+    rgba(0, 0, 0, 0.979)
   );
   --gradient-cocktail: linear-gradient(
     180deg,
-    rgb(253, 1, 1),
-    rgb(15, 46, 146)
+    black,
+    rgb(39, 66, 155),
+    rgb(0, 0, 0)
   );
-  --gradient-movie: linear-gradient(180deg, rgb(253, 1, 1), rgb(6, 7, 1));
+  --gradient-movie: linear-gradient(
+    180deg,
+    black,
+    rgb(92, 85, 85),
+    rgb(6, 7, 1)
+  );
   --background-food-drink: linear-gradient(
     rgba(122, 97, 97, 0.849),
     rgb(7, 5, 4)
@@ -26,6 +33,11 @@
   margin: 0;
   padding: 0;
   font-family: cursive;
+}
+main {
+  background-color: rgb(0, 0, 0);
+  position: absolute;
+  z-index: -2;
 }
 .header {
   display: flex;
@@ -95,6 +107,8 @@ progress {
   width: 100%;
   height: 70px;
   cursor: default;
+  margin-bottom: 20px;
+  margin-top: 90px;
 }
 .section-header h2 {
   font-weight: bold;
@@ -131,7 +145,7 @@ progress {
   border-radius: 5px;
 }
 #food-nav .tabs a:hover {
-  background-color: rgba(187, 3, 3, 0.932) !important;
+  background-color: rgba(160, 11, 11, 0.932) !important;
   border-style: solid;
   border-width: 2px;
   border-color: rgba(0, 0, 0, 0.808);
@@ -174,24 +188,24 @@ progress {
   font-size: 17px;
 }
 #movie-nav .tabs li {
-  background-color: rgba(71, 67, 67, 0.795) !important;
+  background-color: rgba(71, 67, 67, 0.863) !important;
   border-style: solid;
   border-width: 2px;
-  border-color: rgba(77, 72, 72, 0.877);
+  border-color: rgba(41, 38, 38, 0.877);
   border-radius: 5px;
 }
 #movie-nav .tabs a:hover {
-  background-color: rgba(34, 31, 31, 0.836) !important;
+  background-color: rgba(58, 53, 53, 0.836) !important;
   border-style: solid;
   border-width: 2px;
-  border-color: rgba(63, 58, 58, 0.808);
+  border-color: rgba(24, 22, 22, 0.808);
   border-radius: 5px;
 }
 #movie-nav .is-active a {
   background-color: rgba(32, 29, 29, 0.808) !important;
   border-style: solid;
   border-width: 2px;
-  border-color: rgba(43, 40, 40, 0.808);
+  border-color: rgba(29, 27, 27, 0.808);
   border-radius: 5px;
 }
 #food-name {
