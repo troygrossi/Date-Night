@@ -98,7 +98,6 @@ var activateMovieTab = function (event) {
 movieNavEl.addEventListener("click", activateMovieTab);
 
 var submitEl = document.querySelector(".submit-container");
-
 submitEl.addEventListener("click", function () {
   window.location.replace("./display.html");
 });
