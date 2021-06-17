@@ -262,8 +262,8 @@ main {
   width: 30%;
   height: 40px;
   font-size: 25px;
-  color: white;
-  background-image: var(--gradient-header);
+  /* color: white; */
+  /* background-image: var(--gradient-header); */
   cursor: pointer;
 }
 /* food-buttons */
@@ -308,8 +308,8 @@ main {
   width: 30%;
   height: 40px;
   font-size: 25px;
-  color: white;
-  background-image: var(--gradient-header);
+  /* color: white; */
+  /* background-image: var(--gradient-header); */
   cursor: pointer;
 }
 /* drink-buttons */
@@ -354,8 +354,8 @@ main {
   width: 30%;
   height: 40px;
   font-size: 25px;
-  color: white;
-  background-image: var(--gradient-header);
+  /* color: white; */
+  /* background-image: var(--gradient-header); */
   cursor: pointer;
 }
 
