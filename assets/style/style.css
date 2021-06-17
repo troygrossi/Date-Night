@@ -23,8 +23,8 @@
     rgb(6, 7, 1)
   );
   --background-food-drink: linear-gradient(
-    rgba(122, 97, 97, 0.849),
-    rgb(7, 5, 4)
+    rgba(122, 97, 97, 0.904),
+    rgba(7, 5, 4, 0.897)
   );
   --progress-bar: rgb(128, 0, 0);
 }
@@ -177,7 +177,7 @@ progress {
   border-radius: 5px;
 }
 #drink-nav .is-active a {
-  background-color: rgba(12, 50, 219, 0.918) !important;
+  background-color: rgb(12, 50, 219) !important;
   border-style: solid;
   border-width: 2px;
   border-color: rgba(37, 36, 36, 0.651);
@@ -202,7 +202,7 @@ progress {
   border-radius: 5px;
 }
 #movie-nav .is-active a {
-  background-color: rgba(32, 29, 29, 0.808) !important;
+  background-color: rgb(32, 29, 29) !important;
   border-style: solid;
   border-width: 2px;
   border-color: rgba(29, 27, 27, 0.808);

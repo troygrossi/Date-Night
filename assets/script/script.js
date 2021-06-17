@@ -19,16 +19,11 @@ var displayFoodButtons = function (event) {
   }
 };
 var activateFoodTab = function (event) {
-  console.log(foodNavEl.querySelector(".is-active"));
-  console.log(event.target);
-  console.log(event.target.className);
   foodNavEl.querySelector(".is-active").removeAttribute("class");
   if (event.target.className === "food-name") {
     document.querySelector("#food-name").setAttribute("class", "is-active");
-    console.log("test1");
   } else if (event.target.className === "food-type") {
     document.querySelector("#food-type").setAttribute("class", "is-active");
-    console.log("test1");
   } else if (event.target.className === "food-surprise") {
     document.querySelector("#food-surprise").setAttribute("class", "is-active");
   }
@@ -55,16 +50,11 @@ var displayDrinkButtons = function (event) {
   }
 };
 var activateDrinkTab = function (event) {
-  console.log(drinkNavEl.querySelector(".is-active"));
-  console.log(event.target);
-  console.log(event.target.className);
   drinkNavEl.querySelector(".is-active").removeAttribute("class");
   if (event.target.className === "drink-name") {
     document.querySelector("#drink-name").setAttribute("class", "is-active");
-    console.log("test1");
   } else if (event.target.className === "drink-type") {
     document.querySelector("#drink-type").setAttribute("class", "is-active");
-    console.log("test1");
   } else if (event.target.className === "drink-surprise") {
     document
       .querySelector("#drink-surprise")
@@ -93,16 +83,11 @@ var displayMovieButtons = function (event) {
   }
 };
 var activateMovieTab = function (event) {
-  console.log(movieNavEl.querySelector(".is-active"));
-  console.log(event.target);
-  console.log(event.target.className);
   movieNavEl.querySelector(".is-active").removeAttribute("class");
   if (event.target.className === "movie-genre") {
     document.querySelector("#movie-genre").setAttribute("class", "is-active");
-    console.log("test1");
   } else if (event.target.className === "movie-year") {
     document.querySelector("#movie-year").setAttribute("class", "is-active");
-    console.log("test1");
   } else if (event.target.className === "movie-surprise") {
     document
       .querySelector("#movie-surprise")

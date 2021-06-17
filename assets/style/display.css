@@ -10,20 +10,30 @@
   width: 100%;
   height: 1000px;
 }
-.container-all {
+.container-food-drink {
   display: flex;
+  justify-content: space-between;
   width: 100%;
-  height: 500px;
+  height: 400px;
 }
 .container-food {
   display: flex;
+  width: 45%;
+  margin-top: 50px;
+  margin-left: 100px;
   border-style: solid;
 }
 .container-drink {
   display: flex;
+  width: 45%;
+  margin-top: 50px;
+  margin-right: 100px;
   border-style: solid;
 }
-.container-drink {
+.container-movie {
   display: flex;
   border-style: solid;
+  margin: 0 auto 0 auto;
+  height: 250px;
+  width: 50%;
 }
