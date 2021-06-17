@@ -18,6 +18,7 @@
 }
 .container-food {
   display: flex;
+  flex-wrap: wrap;
   width: 45%;
   margin-top: 50px;
   margin-left: 100px;
@@ -30,6 +31,38 @@
   margin-right: 100px;
   border-style: solid;
 }
+.dish-text-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.ingredients-header {
+  width: 50%;
+  text-align: center;
+}
+.instructions-header {
+  width: 50%;
+  text-align: center;
+}
+.dish-ingredients {
+  width: 45%;
+}
+.dish-instructions {
+  width: 50%;
+}
+.dish-header {
+  width: 47%;
+  height: 40px;
+  text-align: right;
+  margin-right: 2px;
+  margin-top: 5px;
+}
+.dish-name {
+  width: 50%;
+  height: 40px;
+  text-align: left;
+  margin-top: 5px;
+}
+
 .container-movie {
   display: flex;
   border-style: solid;
