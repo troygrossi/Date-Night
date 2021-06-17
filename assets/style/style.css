@@ -1,24 +1,20 @@
 :root {
   --gradient-header: linear-gradient(
     180deg,
-    rgba(253, 1, 1, 0.747),
+    rgb(253, 1, 1),
     rgba(7, 5, 4, 0.705)
   );
   --gradient-dinner: linear-gradient(
     180deg,
-    rgba(253, 1, 1, 0.856),
-    rgba(126, 146, 15, 0.76)
+    rgb(253, 1, 1),
+    rgba(126, 146, 15, 0.979)
   );
   --gradient-cocktail: linear-gradient(
     180deg,
-    rgba(253, 1, 1, 0.637),
-    rgba(15, 46, 146, 0.411)
+    rgb(253, 1, 1),
+    rgb(15, 46, 146)
   );
-  --gradient-movie: linear-gradient(
-    180deg,
-    rgba(253, 1, 1, 0.637),
-    rgba(6, 7, 1, 0.411)
-  );
+  --gradient-movie: linear-gradient(180deg, rgb(253, 1, 1), rgb(6, 7, 1));
   --background-food-drink: linear-gradient(
     rgba(122, 97, 97, 0.849),
     rgb(7, 5, 4)
