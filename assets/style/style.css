@@ -6,8 +6,8 @@
   );
   --gradient-dinner: linear-gradient(
     180deg,
-    rgba(253, 1, 1, 0.637),
-    rgba(126, 146, 15, 0.411)
+    rgba(253, 1, 1, 0.856),
+    rgba(126, 146, 15, 0.76)
   );
   --gradient-cocktail: linear-gradient(
     180deg,
@@ -20,9 +20,10 @@
     rgba(6, 7, 1, 0.411)
   );
   --background-food-drink: linear-gradient(
-    rgba(122, 97, 97, 0.747),
-    rgba(7, 5, 4, 0.705)
+    rgba(122, 97, 97, 0.849),
+    rgb(7, 5, 4)
   );
+  --progress-bar: rgb(128, 0, 0);
 }
 * {
   box-sizing: border-box;
@@ -49,7 +50,7 @@
   margin-top: 100px;
   margin-bottom: 50px;
   margin-left: 13%;
-  width: 1140px;
+  width: 1330px;
   cursor: default;
 }
 progress {
@@ -62,6 +63,21 @@ progress {
   transform-origin: 0 100%;
   transform: rotate(90deg);
   margin-left: 63px;
+}
+.progress::-webkit-progress-value {
+  background-color: var(--progress-bar) !important;
+  border-style: solid;
+  border-width: 3px;
+}
+.progress::-moz-progress-bar {
+  background-color: var(--progress-bar) !important;
+  border-style: solid;
+  border-width: 3px;
+}
+.progress::-ms-fill {
+  background-color: var(--progress-bar) !important;
+  border-style: solid;
+  border-width: 3px;
 }
 .progress-header {
   padding: 0 0 7px 5px;
@@ -101,43 +117,86 @@ progress {
 
 .select-nav {
   width: 35%;
-  margin: 0 auto 0 auto;
+  margin: 50px auto 0 auto;
+  background-color: none !important;
+}
+.tabs ul {
+  background-color: none !important;
 }
 #food-nav .tabs span {
-  color: white;
+  color: rgb(253, 253, 253);
+  font-size: 17px;
 }
-#food-nav .tabs a {
-  background-color: rgba(201, 8, 8, 0.719) !important;
+#food-nav .tabs li {
+  background-color: rgba(151, 49, 49, 0.904) !important;
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgba(0, 0, 0, 0.808);
+  border-radius: 5px;
 }
 #food-nav .tabs a:hover {
-  background-color: rgba(187, 3, 3, 0.507) !important;
+  background-color: rgba(187, 3, 3, 0.932) !important;
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgba(0, 0, 0, 0.808);
+  border-radius: 5px;
 }
 #food-nav .is-active a {
-  background-color: rgba(189, 8, 8, 0.568) !important;
+  background-color: rgb(189, 8, 8) !important;
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgba(0, 0, 0, 0.651);
+  border-radius: 5px;
 }
 #drink-nav .tabs span {
-  color: white;
+  color: rgb(253, 253, 253);
+  font-size: 17px;
 }
-#drink-nav .tabs a {
-  background-color: rgba(5, 50, 175, 0.719) !important;
+#drink-nav .tabs li {
+  background-color: rgba(5, 50, 175, 0.781) !important;
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgba(0, 0, 0, 0.808);
+  border-radius: 5px;
 }
 #drink-nav .tabs a:hover {
-  background-color: rgba(4, 33, 161, 0.507) !important;
+  background-color: rgba(4, 33, 161, 0.897) !important;
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgba(0, 0, 0, 0.808);
+  border-radius: 5px;
 }
 #drink-nav .is-active a {
-  background-color: rgba(4, 36, 177, 0.568) !important;
+  background-color: rgba(12, 50, 219, 0.918) !important;
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgba(37, 36, 36, 0.651);
+  border-radius: 5px;
 }
 #movie-nav .tabs span {
-  color: white;
+  color: rgb(253, 253, 253);
+  font-size: 17px;
 }
-#movie-nav .tabs a {
-  background-color: rgba(0, 0, 0, 0.719) !important;
+#movie-nav .tabs li {
+  background-color: rgba(71, 67, 67, 0.795) !important;
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgba(77, 72, 72, 0.877);
+  border-radius: 5px;
 }
 #movie-nav .tabs a:hover {
-  background-color: rgba(0, 0, 0, 0.507) !important;
+  background-color: rgba(34, 31, 31, 0.836) !important;
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgba(63, 58, 58, 0.808);
+  border-radius: 5px;
 }
 #movie-nav .is-active a {
-  background-color: rgba(0, 0, 0, 0.568) !important;
+  background-color: rgba(32, 29, 29, 0.808) !important;
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgba(43, 40, 40, 0.808);
+  border-radius: 5px;
 }
 #food-name {
   width: 33.3%;
@@ -173,9 +232,28 @@ progress {
   border-style: solid;
   border-radius: 10px;
   border-width: 10px;
-  border-color: grey;
+  border-color: rgb(59, 58, 58);
   height: 200px;
   margin: 0 auto 50px auto;
+}
+
+.hero-food {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 369px;
+}
+.hero-drink {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 369px;
+}
+.hero-movie {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 369px;
 }
 /* food-buttons */
 #buttons-food-name {
