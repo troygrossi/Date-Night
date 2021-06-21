@@ -15,6 +15,10 @@
     <main>
       <div class="header">
         <h1>Date Night Generator</h1>
+        <select class="saved-dates">
+          Saved Dates
+          <option selected disabled="disabled" value="">Saved Dates</option>
+        </select>
       </div>
       <!-- food -->
       <div class="section-header" id="dinner-header">
@@ -37,7 +41,7 @@
                 <span class="food-type"
                   ><i class="fas fa-music" aria-hidden="true"></i
                 ></span>
-                <span class="food-type">Select by Area</span>
+                <span class="food-type">Select by Region</span>
               </a>
             </li>
             <li id="food-surprise">
@@ -51,10 +55,11 @@
           </ul>
         </div>
       </div>
+
       <div class="button-container" id="food-container">
         <div id="buttons-food-name">
-          <button class="button is-rounded is-danger">Side</button>
           <button class="button is-rounded is-danger">Starter</button>
+          <button class="button is-rounded is-danger">Side</button>
           <button class="button is-rounded is-danger">Breakfast</button>
           <button class="button is-rounded is-danger">Chicken</button>
           <button class="button is-rounded is-danger">Beef</button>
