@@ -762,7 +762,7 @@ submitEl.addEventListener("click", function () {
   getFood();
   getDrink();
   //wait for API data
-  setTimeout(getDisplay, 2000);
+  setTimeout(getDisplay, 3000);
 });
 
 var selectEl = document.querySelector(".saved-dates");
