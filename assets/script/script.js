@@ -1,9 +1,513 @@
 // Troy Grossi
 
+var Date = [
+  {
+    name: "",
+    ingredients: [],
+    measurements: [],
+    instructions: "",
+    image: "",
+  },
+  {
+    name: "",
+    ingredients: [],
+    measurements: [],
+    instructions: "",
+    image: "",
+  },
+  {
+    genre: "",
+    year: "",
+  },
+];
+
+//  Drink API
+var saveDrinkObject = function (data) {
+  for (let i = 0; i < Date[1].ingredients.length; i++) {
+    Date[1].ingredients.pop;
+    Date[1].measurements.pop;
+  }
+  Date[1].name = data.drinks[0].strDrink;
+  if (data.drinks[0].strIngredient1) {
+    Date[1].ingredients.push(data.drinks[0].strIngredient1);
+    Date[1].measurements.push(data.drinks[0].strMeasure1);
+  }
+  if (data.drinks[0].strIngredient2) {
+    Date[1].ingredients.push(data.drinks[0].strIngredient2);
+    Date[1].measurements.push(data.drinks[0].strMeasure2);
+  }
+  if (data.drinks[0].strIngredient3) {
+    Date[1].ingredients.push(data.drinks[0].strIngredient3);
+    Date[1].measurements.push(data.drinks[0].strMeasure3);
+  }
+  if (data.drinks[0].strIngredient4) {
+    Date[1].ingredients.push(data.drinks[0].strIngredient4);
+    Date[1].measurements.push(data.drinks[0].strMeasure4);
+  }
+  if (data.drinks[0].strIngredient5) {
+    Date[1].ingredients.push(data.drinks[0].strIngredient5);
+    Date[1].measurements.push(data.drinks[0].strMeasure5);
+  }
+  if (data.drinks[0].strIngredient6) {
+    Date[1].ingredients.push(data.drinks[0].strIngredient6);
+    Date[1].measurements.push(data.drinks[0].strMeasure6);
+  }
+  if (data.drinks[0].strIngredient7) {
+    Date[1].ingredients.push(data.drinks[0].strIngredient7);
+    Date[1].measurements.push(data.drinks[0].strMeasure7);
+  }
+  if (data.drinks[0].strIngredient8) {
+    Date[1].ingredients.push(data.drinks[0].strIngredient8);
+    Date[1].measurements.push(data.drinks[0].strMeasure8);
+  }
+  if (data.drinks[0].strIngredient9) {
+    Date[1].ingredients.push(data.drinks[0].strIngredient9);
+    Date[1].measurements.push(data.drinks[0].strMeasure9);
+  }
+  if (data.drinks[0].strIngredient10) {
+    Date[1].ingredients.push(data.drinks[0].strIngredient10);
+    Date[1].measurements.push(data.drinks[0].strMeasure10);
+  }
+  if (data.drinks[0].strIngredient11) {
+    Date[1].ingredients.push(data.drinks[0].strIngredient11);
+    Date[1].measurements.push(data.drinks[0].strMeasure11);
+  }
+  if (data.drinks[0].strIngredient12) {
+    Date[1].ingredients.push(data.drinks[0].strIngredient12);
+    Date[1].measurements.push(data.drinks[0].strMeasure12);
+  }
+  if (data.drinks[0].strIngredient13) {
+    Date[1].ingredients.push(data.drinks[0].strIngredient13);
+    Date[1].measurements.push(data.drinks[0].strMeasure13);
+  }
+  if (data.drinks[0].strIngredient14) {
+    Date[1].ingredients.push(data.drinks[0].strIngredient14);
+    Date[1].measurements.push(data.drinks[0].strMeasure14);
+  }
+  if (data.drinks[0].strIngredient15) {
+    Date[1].ingredients.push(data.drinks[0].strIngredient15);
+    Date[1].measurements.push(data.drinks[0].strMeasure15);
+  }
+  Date[1].instructions = data.drinks[0].strInstructions;
+  Date[1].image = data.drinks[0].strDrinkThumb;
+  localStorage.setItem("date", JSON.stringify(Date));
+  console.log(Date);
+};
+//step 3
+var getDrinkByID = function (drinkID) {
+  var apiUrl =
+    "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + drinkID;
+  fetch(apiUrl)
+    .then(function (response) {
+      //cathes error if request has no matching repository name
+      if (!response.ok) {
+        alert("error1");
+        return 0;
+      }
+      return response.json();
+    })
+    .then(function (data) {
+      saveDrinkObject(data);
+    }) //cathes error if request fails to send
+    .catch(function (error) {
+      alert("error2");
+    });
+};
+
+//step 2
+var getDrinkID = function (data) {
+  var random = Math.floor(Math.random() * data.drinks.length);
+  var drinkID = data.drinks[random].idDrink;
+  getDrinkByID(drinkID);
+};
+//step 1
+var getDrinkByRandom = function () {
+  var apiUrl = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
+  fetch(apiUrl)
+    .then(function (response) {
+      //cathes error if request has no matching repository name
+      if (!response.ok) {
+        alert("error1");
+        return 0;
+      }
+      return response.json();
+    })
+    .then(function (data) {
+      saveDrinkObject(data);
+    }) //cathes error if request fails to send
+    .catch(function (error) {
+      alert("error2");
+    });
+};
+var getDrinkByIngredient = function (ingredient) {
+  var apiUrl =
+    "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + ingredient;
+  fetch(apiUrl)
+    .then(function (response) {
+      //cathes error if request has no matching repository name
+      if (!response.ok) {
+        alert("error1");
+        return 0;
+      }
+      return response.json();
+    })
+    .then(function (data) {
+      getDrinkID(data);
+    }) //cathes error if request fails to send
+    .catch(function (error) {
+      alert("error2");
+    });
+};
+var getDrinkByCategory = function (category) {
+  var apiUrl =
+    "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + category;
+  fetch(apiUrl)
+    .then(function (response) {
+      //cathes error if request has no matching repository name
+      if (!response.ok) {
+        alert("error1");
+        return 0;
+      }
+      return response.json();
+    })
+    .then(function (data) {
+      getDrinkID(data);
+      //   getDrinkID(data);
+    }); //cathes error if request fails to send
+  // .catch(function (error) {
+  //   alert("error2");
+  // });
+};
+// Drink API
+
+// step 4
+var saveFoodObject = function (data) {
+  for (let i = 0; i < Date[0].ingredients.length; i++) {
+    Date[0].ingredients.pop;
+    Date[0].measurements.pop;
+  }
+  Date[0].name = data.meals[0].strMeal;
+  if (data.meals[0].strIngredient1) {
+    Date[0].ingredients.push(data.meals[0].strIngredient1);
+    Date[0].measurements.push(data.meals[0].strMeasure1);
+  }
+  if (data.meals[0].strIngredient2) {
+    Date[0].ingredients.push(data.meals[0].strIngredient2);
+    Date[0].measurements.push(data.meals[0].strMeasure2);
+  }
+  if (data.meals[0].strIngredient3) {
+    Date[0].ingredients.push(data.meals[0].strIngredient3);
+    Date[0].measurements.push(data.meals[0].strMeasure3);
+  }
+  if (data.meals[0].strIngredient4) {
+    Date[0].ingredients.push(data.meals[0].strIngredient4);
+    Date[0].measurements.push(data.meals[0].strMeasure4);
+  }
+  if (data.meals[0].strIngredient5) {
+    Date[0].ingredients.push(data.meals[0].strIngredient5);
+    Date[0].measurements.push(data.meals[0].strMeasure5);
+  }
+  if (data.meals[0].strIngredient6) {
+    Date[0].ingredients.push(data.meals[0].strIngredient6);
+    Date[0].measurements.push(data.meals[0].strMeasure6);
+  }
+  if (data.meals[0].strIngredient7) {
+    Date[0].ingredients.push(data.meals[0].strIngredient7);
+    Date[0].measurements.push(data.meals[0].strMeasure7);
+  }
+  if (data.meals[0].strIngredient8) {
+    Date[0].ingredients.push(data.meals[0].strIngredient8);
+    Date[0].measurements.push(data.meals[0].strMeasure8);
+  }
+  if (data.meals[0].strIngredient9) {
+    Date[0].ingredients.push(data.meals[0].strIngredient9);
+    Date[0].measurements.push(data.meals[0].strMeasure9);
+  }
+  if (data.meals[0].strIngredient10) {
+    Date[0].ingredients.push(data.meals[0].strIngredient10);
+    Date[0].measurements.push(data.meals[0].strMeasure10);
+  }
+  if (data.meals[0].strIngredient11) {
+    Date[0].ingredients.push(data.meals[0].strIngredient11);
+    Date[0].measurements.push(data.meals[0].strMeasure11);
+  }
+  if (data.meals[0].strIngredient12) {
+    Date[0].ingredients.push(data.meals[0].strIngredient12);
+    Date[0].measurements.push(data.meals[0].strMeasure12);
+  }
+  if (data.meals[0].strIngredient13) {
+    Date[0].ingredients.push(data.meals[0].strIngredient13);
+    Date[0].measurements.push(data.meals[0].strMeasure13);
+  }
+  if (data.meals[0].strIngredient14) {
+    Date[0].ingredients.push(data.meals[0].strIngredient14);
+    Date[0].measurements.push(data.meals[0].strMeasure14);
+  }
+  if (data.meals[0].strIngredient15) {
+    Date[0].ingredients.push(data.meals[0].strIngredient15);
+    Date[0].measurements.push(data.meals[0].strMeasure15);
+  }
+  if (data.meals[0].strIngredient16) {
+    Date[0].ingredients.push(data.meals[0].strIngredient16);
+    Date[0].measurements.push(data.meals[0].strMeasure16);
+  }
+  if (data.meals[0].strIngredient17) {
+    Date[0].ingredients.push(data.meals[0].strIngredient17);
+    Date[0].measurements.push(data.meals[0].strMeasure17);
+  }
+  if (data.meals[0].strIngredient18) {
+    Date[0].ingredients.push(data.meals[0].strIngredient18);
+    Date[0].measurements.push(data.meals[0].strMeasure18);
+  }
+  if (data.meals[0].strIngredient19) {
+    Date[0].ingredients.push(data.meals[0].strIngredient19);
+    Date[0].measurements.push(data.meals[0].strMeasure19);
+  }
+  if (data.meals[0].strIngredient20) {
+    Date[0].ingredients.push(data.meals[0].strIngredient20);
+    Date[0].measurements.push(data.meals[0].strMeasure20);
+  }
+  Date[0].instructions = data.meals[0].strInstructions;
+  Date[0].image = data.meals[0].strMealThumb;
+  localStorage.setItem("date", JSON.stringify(Date));
+};
+//step 3
+var getFoodByID = function (mealID) {
+  var apiUrl = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + mealID;
+  fetch(apiUrl)
+    .then(function (response) {
+      //cathes error if request has no matching repository name
+      if (!response.ok) {
+        alert("error1");
+        return 0;
+      }
+      return response.json();
+    })
+    .then(function (data) {
+      saveFoodObject(data);
+    }) //cathes error if request fails to send
+    .catch(function (error) {
+      alert("error2");
+    });
+};
+
+//step 2
+var getFoodID = function (data) {
+  var random = Math.floor(Math.random() * data.meals.length);
+  var mealID = data.meals[random].idMeal;
+  getFoodByID(mealID);
+};
+//step 1
+var getFoodByRandom = function () {
+  var apiUrl = "https://www.themealdb.com/api/json/v1/1/random.php";
+  fetch(apiUrl)
+    .then(function (response) {
+      //cathes error if request has no matching repository name
+      if (!response.ok) {
+        alert("error1");
+        return 0;
+      }
+      return response.json();
+    })
+    .then(function (data) {
+      saveFoodObject(data);
+    }) //cathes error if request fails to send
+    .catch(function (error) {
+      alert("error2");
+    });
+};
+var getFoodByRegion = function (region) {
+  var apiUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?a=" + region;
+  fetch(apiUrl)
+    .then(function (response) {
+      //cathes error if request has no matching repository name
+      if (!response.ok) {
+        alert("error1");
+        return 0;
+      }
+      return response.json();
+    })
+    .then(function (data) {
+      getFoodID(data);
+    }) //cathes error if request fails to send
+    .catch(function (error) {
+      alert("error2");
+    });
+};
+var getFoodByCategory = function (category) {
+  var apiUrl =
+    "https://www.themealdb.com/api/json/v1/1/filter.php?c=" + category;
+  fetch(apiUrl)
+    .then(function (response) {
+      //cathes error if request has no matching repository name
+      if (!response.ok) {
+        alert("error1");
+        return 0;
+      }
+      return response.json();
+    })
+    .then(function (data) {
+      getFoodID(data);
+    }) //cathes error if request fails to send
+    .catch(function (error) {
+      alert("error2");
+    });
+};
+// //Food API
+
+// Movie API
+var Genre = {
+  action: 28,
+  adventure: 12,
+  animation: 16,
+  comedy: 35,
+  crime: 80,
+  documentary: 99,
+  drama: 18,
+  family: 10751,
+  fantasy: 14,
+  history: 36,
+  horror: 27,
+  music: 10402,
+  mystery: 9648,
+  romance: 10749,
+  scienceFiction: 879,
+  tvMovie: 10770,
+  thriller: 53,
+  war: 10752,
+  western: 37,
+  getGenreById: function (id) {
+    switch (id) {
+      case 28:
+        return "Action";
+      case 12:
+        return "Adventure";
+      case 16:
+        return "Animation";
+      case 35:
+        return "Comedy";
+      case 80:
+        return "Crime";
+      case 99:
+        return "Documentary";
+      case 18:
+        return "Drama";
+      case 10751:
+        return "Family";
+      case 14:
+        return "Fantasy";
+      case 36:
+        return "History";
+      case 27:
+        return "Horror";
+      case 10402:
+        return "Music";
+      case 9648:
+        return "Mystery";
+      case 10749:
+        return "Romance";
+      case 879:
+        return "Science Fiction";
+      case 10770:
+        return "tvMovie";
+      case 53:
+        return "Thriller";
+      case 10752:
+        return "War";
+      case 37:
+        return "Western";
+    }
+  },
+};
+// Step 4
+var Movie = function (title, overview, year, genre) {
+  this.title = title;
+  this.overview = overview;
+  this.year = year;
+  this.genre = genre;
+};
+var saveMovie = function (data) {
+  var randomMovie = Math.floor(Math.random() * data.results.length);
+  var title = data.results[randomMovie].title;
+  var overview = data.results[randomMovie].overview;
+  var year = data.results[randomMovie].release_date;
+  var genre = [];
+  for (let i = 0; i < data.results[randomMovie].genre_ids.length; i++) {
+    genre.push(Genre.getGenreById(data.results[randomMovie].genre_ids[i]));
+  }
+  var movie = new Movie(title, overview, year, genre);
+  localStorage.setItem("movie", JSON.stringify(movie));
+};
+// Step 3
+var getMovie = function (year, genre, page) {
+  var apiUrl =
+    "https://api.themoviedb.org/3/discover/movie?primary_release_year=" +
+    year +
+    "&with_genres=" +
+    genre +
+    "&language=en-US&certification=R&sort_by=popularity.desc&api_key=9f60c24a97220d2f6780c3978364a342&page=" +
+    page;
+  fetch(apiUrl)
+    .then(function (response) {
+      //cathes error if request has no matching repository name
+      if (!response.ok) {
+        alert("error1");
+        return 0;
+      }
+      return response.json();
+    })
+    .then(function (data) {
+      saveMovie(data);
+    }) //cathes error if request fails to send
+    .catch(function (error) {
+      alert("error2");
+    });
+};
+// // Step 2
+var getPage = function (data, year, genre) {
+  var popularityScale = 5;
+  if (data.total_pages >= 5) {
+    var randomPage = Math.floor(Math.random() * popularityScale) + 1;
+    getMovie(year, genre, randomPage);
+  } else {
+    var randomPage = Math.floor(Math.random() * data.total_pages) + 1;
+    getMovie(year, genre, randomPage);
+  }
+};
+// Step 1
+var getMovieData = function (year, genre, page) {
+  var apiUrl =
+    "https://api.themoviedb.org/3/discover/movie?primary_release_year=" +
+    year +
+    "&with_genres=" +
+    genre +
+    "&language=en-US&certification=R&sort_by=popularity.desc&api_key=9f60c24a97220d2f6780c3978364a342&page=" +
+    page;
+  fetch(apiUrl)
+    .then(function (response) {
+      //cathes error if request has no matching repository name
+      if (!response.ok) {
+        alert("error1");
+        return 0;
+      }
+      return response.json();
+    })
+    .then(function (data) {
+      getPage(data, year, genre);
+    }) //cathes error if request fails to send
+    .catch(function (error) {
+      alert("error2");
+    });
+};
+var year = "2020,2021,2018";
+
+getMovieData(year, Genre.action, 1);
+// Movie API
+
 // food navigation
 var foodNavEl = document.querySelector("#food-nav");
 var displayFoodButtons = function (event) {
-  tabSelectEl = foodNavEl.querySelector(".is-active");
+  var tabSelectEl = foodNavEl.querySelector(".is-active");
   if (tabSelectEl.id === "food-name") {
     document.querySelector("#buttons-food-surprise").style.display = "none";
     document.querySelector("#buttons-food-type").style.display = "none";
@@ -34,7 +538,7 @@ foodNavEl.addEventListener("click", activateFoodTab);
 // drink navigation
 var drinkNavEl = document.querySelector("#drink-nav");
 var displayDrinkButtons = function (event) {
-  tabSelectEl = drinkNavEl.querySelector(".is-active");
+  var tabSelectEl = drinkNavEl.querySelector(".is-active");
   if (tabSelectEl.id === "drink-name") {
     document.querySelector("#buttons-drink-surprise").style.display = "none";
     document.querySelector("#buttons-drink-type").style.display = "none";
@@ -67,7 +571,7 @@ drinkNavEl.addEventListener("click", activateDrinkTab);
 // movie navigation
 var movieNavEl = document.querySelector("#movie-nav");
 var displayMovieButtons = function (event) {
-  tabSelectEl = movieNavEl.querySelector(".is-active");
+  var tabSelectEl = movieNavEl.querySelector(".is-active");
   if (tabSelectEl.id === "movie-genre") {
     document.querySelector("#buttons-movie-surprise").style.display = "none";
     document.querySelector("#buttons-movie-year").style.display = "none";
@@ -102,7 +606,7 @@ submitEl.addEventListener("click", function () {
   window.location.replace("./display.html");
 });
 
-// event listener to chnage button colors
+// event listener to change button colors
 var foodCategoryButtons = document.querySelector("#buttons-food-name");
 var foodAreaButtons = document.querySelector("#buttons-food-type");
 var foodSurprise = document.querySelector("#buttons-food-surprise");
@@ -120,25 +624,15 @@ foodButtons.addEventListener("click", function (event) {
     }
     buttonSurprise[1].className = "button is-rounded is-danger";
     event.target.className = "button is-rounded is-light";
-  }
-});
-var foodCategoryButtons = document.querySelector("#buttons-food-name");
-var foodAreaButtons = document.querySelector("#buttons-food-type");
-var foodSurprise = document.querySelector("#buttons-food-surprise");
-var foodButtons = document.querySelector("#food-container");
-foodButtons.addEventListener("click", function (event) {
-  var buttonsCategory = foodCategoryButtons.childNodes;
-  var buttonsArea = foodAreaButtons.childNodes;
-  var buttonSurprise = foodSurprise.childNodes;
-  if (event.target.tagName === "BUTTON") {
-    for (let i = 0; i < buttonsCategory.length; i++) {
-      buttonsCategory[i].className = "button is-rounded is-danger";
+    // send button select to API
+    var tabSelectEl = foodNavEl.querySelector(".is-active");
+    if (tabSelectEl.id === "food-name") {
+      getFoodByCategory(event.target.textContent);
+    } else if (tabSelectEl.id === "food-type") {
+      getFoodByRegion(event.target.textContent);
+    } else if (tabSelectEl.id === "food-surprise") {
+      getFoodByRandom();
     }
-    for (let i = 0; i < buttonsArea.length; i++) {
-      buttonsArea[i].className = "button is-rounded is-danger";
-    }
-    buttonSurprise[1].className = "button is-rounded is-danger";
-    event.target.className = "button is-rounded is-light";
   }
 });
 var drinkCategoryButtons = document.querySelector("#buttons-drink-name");
@@ -158,6 +652,15 @@ drinkButtons.addEventListener("click", function (event) {
     }
     buttonSurprise[1].className = "button is-rounded is-link";
     event.target.className = "button is-rounded is-light";
+    // send button select to API
+    var tabSelectEl = drinkNavEl.querySelector(".is-active");
+    if (tabSelectEl.id === "drink-name") {
+      getDrinkByCategory(event.target.textContent);
+    } else if (tabSelectEl.id === "drink-type") {
+      getDrinkByIngredient(event.target.textContent);
+    } else if (tabSelectEl.id === "drink-surprise") {
+      getDrinkByRandom();
+    }
   }
 });
 var movieGenreButtons = document.querySelector("#buttons-movie-genre");

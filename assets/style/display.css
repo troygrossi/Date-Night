@@ -10,24 +10,12 @@
   width: 100%;
   height: 1000px;
 }
-.container-food-drink {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  height: 350px;
-}
 .container-food {
   display: flex;
-  flex-wrap: wrap;
-  width: 45%;
+  flex-direction: column;
+  width: 100%;
   margin-top: 50px;
-  border-style: solid;
-}
-.container-cocktail {
-  display: flex;
-  flex-wrap: wrap;
-  width: 45%;
-  margin-top: 50px;
+  padding-left: 30px;
   border-style: solid;
 }
 .dish-text-container {
@@ -35,67 +23,99 @@
   flex-wrap: wrap;
 }
 .ingredients-dish-header {
-  width: 50%;
+  width: 30%;
   text-align: center;
+  padding-right: 80px;
 }
 .instructions-dish-header {
-  width: 50%;
-  text-align: center;
+  width: 70%;
+  text-align: start;
+  padding-left: 20px;
 }
-.dish-ingredients {
+
+.dish-name {
+  width: 100%;
+  height: 40px;
+  text-align: center;
+  margin-top: 5px;
+}
+.dish-ingredients-image {
+  display: flex;
+  flex-wrap: wrap;
+  width: 30%;
+}
+.dish-ingredients-first {
+  width: 50%;
+  padding: 10px;
+}
+.dish-ingredients-second {
   width: 50%;
   padding: 10px;
 }
 .dish-instructions {
-  width: 50%;
+  width: 70%;
   padding: 10px;
 }
-.dish-header {
-  width: 47%;
-  height: 40px;
-  text-align: right;
-  margin-right: 2px;
-  margin-top: 5px;
+.dish-image-container {
+  display: flex;
+  justify-content: center;
 }
-.dish-name {
-  width: 50%;
-  height: 40px;
-  text-align: left;
-  margin-top: 5px;
+.dish-image {
+  width: 25%;
 }
+/* drink */
 
-.cocktail-text-container {
+.container-drink {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-left: 30px;
+  border-style: solid;
+}
+.drink-text-container {
   display: flex;
   flex-wrap: wrap;
 }
-.ingredients-cocktail-header {
-  width: 50%;
+.ingredients-drink-header {
+  width: 30%;
   text-align: center;
+  padding-right: 80px;
 }
-.instructions-cocktail-header {
-  width: 50%;
+.instructions-drink-header {
+  width: 70%;
+  text-align: start;
+  padding-left: 20px;
+}
+
+.drink-name {
+  width: 100%;
+  height: 40px;
   text-align: center;
+  margin-top: 5px;
 }
-.cocktail-ingredients {
+.drink-ingredients-image {
+  display: flex;
+  flex-wrap: wrap;
+  width: 30%;
+}
+.drink-ingredients-first {
   width: 50%;
   padding: 10px;
 }
-.cocktail-instructions {
+.drink-ingredients-second {
   width: 50%;
   padding: 10px;
 }
-.cocktail-header {
-  width: 47%;
-  height: 40px;
-  text-align: right;
-  margin-right: 2px;
-  margin-top: 5px;
+.drink-instructions {
+  width: 70%;
+  padding: 10px;
 }
-.cocktail-name {
-  width: 50%;
-  height: 40px;
-  text-align: left;
-  margin-top: 5px;
+.drink-image-container {
+  display: flex;
+  justify-content: center;
+}
+.drink-image {
+  width: 25%;
 }
 
 .container-movie {
@@ -104,8 +124,8 @@
   justify-content: flex-start;
   align-items: center;
   border-style: solid;
-  margin: 70px auto 0 auto;
-  height: 200px;
+  margin: 50px auto 0 auto;
+  height: 190px;
   width: 50%;
 }
 .movie-title {
