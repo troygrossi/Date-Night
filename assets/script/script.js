@@ -22,6 +22,9 @@ var Date = [
     year: "",
     image: "https://image.tmdb.org/t/p/original/",
   },
+  {
+    savedName: "",
+  },
 ];
 
 //  Drink API
@@ -94,7 +97,6 @@ var saveDrinkObject = function (data) {
   Date[1].instructions = data.drinks[0].strInstructions;
   Date[1].image = data.drinks[0].strDrinkThumb;
   localStorage.setItem("date", JSON.stringify(Date));
-  console.log(Date);
 };
 //step 3
 var getDrinkByID = function (drinkID) {
@@ -458,7 +460,6 @@ var saveMovie = function (data) {
     );
   }
   Date[2].image += data.results[randomMovie].poster_path;
-  console.log(Date[2]);
 };
 // Step 3
 var getMovieByPage = function (year, genre, page) {
@@ -515,7 +516,6 @@ var getMovieData = function (year, genre, page) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
       getPage(data, year, genre);
     }) //cathes error if request fails to send
     .catch(function (error) {
@@ -693,7 +693,6 @@ var getFood = function () {
   var buttonSurprise = foodSurprise.childNodes;
   for (let i = 0; i < buttonsCategory.length; i++) {
     if (buttonsCategory[i].className === "button is-rounded is-light") {
-      console.log(buttonsCategory[i].textContent);
       getFoodByCategory(buttonsCategory[i].textContent);
     }
   }
@@ -712,7 +711,6 @@ var getDrink = function () {
   var buttonSurprise = drinkSurprise.childNodes;
   for (let i = 0; i < buttonsCategory.length; i++) {
     if (buttonsCategory[i].className === "button is-rounded is-light") {
-      console.log(buttonsCategory[i].textContent);
       getDrinkByCategory(buttonsCategory[i].textContent);
     }
   }
@@ -737,7 +735,6 @@ var getMovie = function () {
     if (buttonsGenre[i].className === "button is-rounded is-dark") {
       if (comma) {
         genres += ", " + Genre.getIdByGenre(buttonsGenre[i].textContent);
-        console.log(genres);
       } else {
         genres += Genre.getIdByGenre(buttonsGenre[i].textContent);
         comma = true;
@@ -748,7 +745,6 @@ var getMovie = function () {
     if (buttonsYear[i].className === "button is-rounded is-dark") {
       if (comma) {
         years += ", " + buttonsYear[i].textContent;
-        console.log(genres);
       } else {
         years += buttonsYear[i].textContent;
         comma = true;
@@ -769,6 +765,30 @@ submitEl.addEventListener("click", function () {
   setTimeout(getDisplay, 2000);
 });
 
-// Event listener to chnage button colors end
-localStorage.setItem("test", "testing");
+var selectEl = document.querySelector(".saved-dates");
+var getSavedData = function () {
+  if (localStorage.getItem("index")) {
+    var index = parseInt(localStorage.getItem("index"));
+    var tempDate;
+    for (let i = index; i > 0; i--) {
+      var tempDate = JSON.parse(localStorage.getItem("date" + i));
+      var newOptionEl = document.createElement("option");
+      newOptionEl.value = i;
+      newOptionEl.textContent = tempDate[3].savedName;
+      selectEl.append(newOptionEl);
+    }
+  }
+};
+getSavedData();
+
+var saveButtonEl = document.querySelector(".saved-button");
+saveButtonEl.addEventListener("click", function (event) {
+  if (event.target.tagName === "BUTTON") {
+    Date = JSON.parse(localStorage.getItem("date" + selectEl.value));
+    console.log("date" + selectEl.value);
+    localStorage.setItem("date", JSON.stringify(Date));
+    window.location.replace("./display.html");
+  }
+});
+
 // Troy Grossi

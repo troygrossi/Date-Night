@@ -12,61 +12,74 @@
     />
   </head>
   <body>
-    <section class="container-food">
-      <p class="dish-name">Dish name goes here</p>
-      <div class="dish-text-container">
-        <p class="ingredients-dish-header">Dish Ingredients:</p>
-        <p class="instructions-dish-header">Dish Instructions:</p>
-        <div class="dish-ingredients-image">
-          <ul class="dish-ingredients-first"></ul>
-          <ul class="dish-ingredients-second"></ul>
+    <section class="food-section">
+      <section class="container-food">
+        <p class="dish-name">Dish name goes here</p>
+        <div class="dish-text-container">
+          <p class="ingredients-dish-header">Dish Ingredients:</p>
+          <p class="instructions-dish-header">Dish Instructions:</p>
+          <div class="dish-ingredients-image">
+            <ul class="dish-ingredients-first"></ul>
+            <ul class="dish-ingredients-second"></ul>
+          </div>
+          <p class="dish-instructions"></p>
         </div>
-        <p class="dish-instructions"></p>
+      </section>
+      <div class="dish-image-container">
+        <img class="dish-image" />
       </div>
     </section>
-    <div class="dish-image-container">
-      <img class="dish-image" />
-    </div>
-    <section class="container-drink">
-      <p class="drink-name">Cocktail name goes here</p>
-      <div class="drink-text-container">
-        <p class="ingredients-drink-header">Cocktail Ingredients:</p>
-        <p class="instructions-drink-header">Cocktail Instructions:</p>
-        <div class="drink-ingredients-image">
-          <ul class="drink-ingredients-first"></ul>
-          <ul class="drink-ingredients-second"></ul>
+    <section class="drink-section">
+      <section class="container-drink">
+        <p class="drink-name">Cocktail name goes here</p>
+        <div class="drink-text-container">
+          <p class="ingredients-drink-header">Cocktail Ingredients:</p>
+          <p class="instructions-drink-header">Cocktail Instructions:</p>
+          <div class="drink-ingredients-image">
+            <ul class="drink-ingredients-first"></ul>
+            <ul class="drink-ingredients-second"></ul>
+          </div>
+          <p class="drink-instructions"></p>
         </div>
-        <p class="drink-instructions"></p>
+      </section>
+      <div class="drink-image-container">
+        <img class="drink-image" />
       </div>
     </section>
-    <div class="drink-image-container">
-      <img class="drink-image" />
-    </div>
-    <div class="container-movie">
-      <p class="movie-title">Movie Title</p>
-      <div class="year-genre-container">
-        <div class="movie-year">
-          Year:
-          <p class="year">Year goes here</p>
+    <section class="movie-section">
+      <div class="container-movie">
+        <p class="movie-title">Movie Title</p>
+        <div class="year-genre-container">
+          <div class="movie-year">
+            Year:
+            <p class="year">Year goes here</p>
+          </div>
+          <div class="movie-genre">
+            Genre:
+            <p class="genre">Genre goes here</p>
+          </div>
         </div>
-        <div class="movie-genre">
-          Genre:
-          <p class="genre">Genre goes here</p>
-        </div>
+        <p class="movie-description">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
+          sapiente eligendi, minima aliquid eos architecto libero! Aliquam
+          necessitatibus autem nobis error provident, ab exercitationem nihil,
+          aliquid quos deserunt tenetur perspiciatis?
+        </p>
       </div>
-      <p class="movie-description">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
-        sapiente eligendi, minima aliquid eos architecto libero! Aliquam
-        necessitatibus autem nobis error provident, ab exercitationem nihil,
-        aliquid quos deserunt tenetur perspiciatis?
-      </p>
-    </div>
-    <div class="movie-image-container">
-      <img class="movie-image" />
-    </div>
-    <div class="return-container">
-      <button class="return">Return</button>
-    </div>
+      <div class="movie-image-container">
+        <img class="movie-image" />
+      </div>
+      <div class="return-container">
+        <button class="return">Return</button>
+        <form class="save-form">
+          <div class="save-container">
+            <label for="save-input" class="save-label">Save the date?</label>
+            <input id="save-input" class="save-input" type="text" />
+          </div>
+          <button class="save-button button is-success">Save</button>
+        </form>
+      </div>
+    </section>
     <script src="./assets/script/display.js"></script>
   </body>
 </html>

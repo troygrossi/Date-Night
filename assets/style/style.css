@@ -84,6 +84,12 @@ main {
   border-width: 5px;
   border-radius: 20px;
 }
+.saved-button {
+  position: absolute;
+  right: 5%;
+  height: 50px;
+  width: 80px;
+}
 #dinner-header {
   background-image: var(--gradient-dinner);
 }
