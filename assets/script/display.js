@@ -28,11 +28,6 @@ var movieImageEl = document.querySelector(".movie-image");
 var date = JSON.parse(localStorage.getItem("date"));
 console.log(date);
 
-var returnEl = document.querySelector(".return-container");
-returnEl.addEventListener("click", function () {
-  window.location.replace("./index.html");
-});
-
 var setDishName = function () {
   dishNameEl.textContent = date[0].name;
 };
@@ -111,3 +106,40 @@ setMovieYear();
 setMovieGenre();
 setMovieOverview();
 setMovieImage();
+
+var returnEl = document.querySelector(".return");
+returnEl.addEventListener("click", function () {
+  window.location.replace("./index.html");
+});
+
+var saveEl = document.querySelector(".save-form");
+var saveInputEl = document.querySelector(".save-input");
+var saveLabelEl = document.querySelector(".save-label");
+var saved = false;
+var index = 0;
+var saveToStorage = function () {
+  if (!saved) {
+    if (!localStorage.getItem("index")) {
+      localStorage.setItem("index", 1);
+      index = 1;
+    } else {
+      index = parseInt(localStorage.getItem("index"));
+      index++;
+    }
+    localStorage.removeItem("index");
+    localStorage.setItem("index", index);
+    saved = true;
+  }
+  var tempDate = JSON.parse(localStorage.getItem("date"));
+  localStorage.removeItem("date");
+  tempDate[3].savedName = saveInputEl.value;
+  console.log(tempDate);
+  console.log(index);
+  localStorage.setItem("date" + index, JSON.stringify(tempDate));
+};
+
+saveEl.addEventListener("submit", function (event) {
+  event.preventDefault();
+  saveLabelEl.textContent = "Saved!";
+  saveToStorage();
+});
