@@ -16,8 +16,11 @@ var Date = [
     image: "",
   },
   {
-    genre: "",
+    title: "",
+    overview: "",
+    genre: [],
     year: "",
+    image: "https://image.tmdb.org/t/p/original/",
   },
 ];
 
@@ -173,10 +176,10 @@ var getDrinkByCategory = function (category) {
     .then(function (data) {
       getDrinkID(data);
       //   getDrinkID(data);
-    }); //cathes error if request fails to send
-  // .catch(function (error) {
-  //   alert("error2");
-  // });
+    }) //cathes error if request fails to send
+    .catch(function (error) {
+      alert("error2");
+    });
 };
 // Drink API
 
@@ -357,25 +360,48 @@ var getFoodByCategory = function (category) {
 
 // Movie API
 var Genre = {
-  action: 28,
-  adventure: 12,
-  animation: 16,
-  comedy: 35,
-  crime: 80,
-  documentary: 99,
-  drama: 18,
-  family: 10751,
-  fantasy: 14,
-  history: 36,
-  horror: 27,
-  music: 10402,
-  mystery: 9648,
-  romance: 10749,
-  scienceFiction: 879,
-  tvMovie: 10770,
-  thriller: 53,
-  war: 10752,
-  western: 37,
+  getIdByGenre: function (genre) {
+    switch (genre) {
+      case "Action":
+        return 28;
+      case "Adventure":
+        return 12;
+      case "Animation":
+        return 16;
+      case "Comedy":
+        return 35;
+      case "Crime":
+        return 80;
+      case "Documentary":
+        return 99;
+      case "Drama":
+        return 18;
+      case "Family":
+        return 10751;
+      case "Fantasy":
+        return 14;
+      case "History":
+        return 36;
+      case "Horror":
+        return 27;
+      case "Music":
+        return 10402;
+      case "Mystery":
+        return 9648;
+      case "Romance":
+        return 10749;
+      case "ScienceFiction":
+        return 878;
+      case "tvMovie":
+        return 10770;
+      case "Thriller":
+        return 53;
+      case "War":
+        return 10751;
+      case "Western":
+        return 37;
+    }
+  },
   getGenreById: function (id) {
     switch (id) {
       case 28:
@@ -406,7 +432,7 @@ var Genre = {
         return "Mystery";
       case 10749:
         return "Romance";
-      case 879:
+      case 878:
         return "Science Fiction";
       case 10770:
         return "tvMovie";
@@ -420,26 +446,22 @@ var Genre = {
   },
 };
 // Step 4
-var Movie = function (title, overview, year, genre) {
-  this.title = title;
-  this.overview = overview;
-  this.year = year;
-  this.genre = genre;
-};
 var saveMovie = function (data) {
   var randomMovie = Math.floor(Math.random() * data.results.length);
-  var title = data.results[randomMovie].title;
-  var overview = data.results[randomMovie].overview;
-  var year = data.results[randomMovie].release_date;
+  Date[2].title = data.results[randomMovie].title;
+  Date[2].overview = data.results[randomMovie].overview;
+  Date[2].year = data.results[randomMovie].release_date;
   var genre = [];
   for (let i = 0; i < data.results[randomMovie].genre_ids.length; i++) {
-    genre.push(Genre.getGenreById(data.results[randomMovie].genre_ids[i]));
+    Date[2].genre.push(
+      Genre.getGenreById(data.results[randomMovie].genre_ids[i])
+    );
   }
-  var movie = new Movie(title, overview, year, genre);
-  localStorage.setItem("movie", JSON.stringify(movie));
+  Date[2].image += data.results[randomMovie].poster_path;
+  console.log(Date[2]);
 };
 // Step 3
-var getMovie = function (year, genre, page) {
+var getMovieByPage = function (year, genre, page) {
   var apiUrl =
     "https://api.themoviedb.org/3/discover/movie?primary_release_year=" +
     year +
@@ -468,10 +490,10 @@ var getPage = function (data, year, genre) {
   var popularityScale = 5;
   if (data.total_pages >= 5) {
     var randomPage = Math.floor(Math.random() * popularityScale) + 1;
-    getMovie(year, genre, randomPage);
+    getMovieByPage(year, genre, randomPage);
   } else {
     var randomPage = Math.floor(Math.random() * data.total_pages) + 1;
-    getMovie(year, genre, randomPage);
+    getMovieByPage(year, genre, randomPage);
   }
 };
 // Step 1
@@ -493,15 +515,13 @@ var getMovieData = function (year, genre, page) {
       return response.json();
     })
     .then(function (data) {
+      console.log(data);
       getPage(data, year, genre);
     }) //cathes error if request fails to send
     .catch(function (error) {
       alert("error2");
     });
 };
-var year = "2020,2021,2018";
-
-getMovieData(year, Genre.action, 1);
 // Movie API
 
 // food navigation
@@ -601,11 +621,6 @@ var activateMovieTab = function (event) {
 };
 movieNavEl.addEventListener("click", activateMovieTab);
 
-var submitEl = document.querySelector(".submit-container");
-submitEl.addEventListener("click", function () {
-  window.location.replace("./display.html");
-});
-
 // event listener to change button colors
 var foodCategoryButtons = document.querySelector("#buttons-food-name");
 var foodAreaButtons = document.querySelector("#buttons-food-type");
@@ -624,15 +639,6 @@ foodButtons.addEventListener("click", function (event) {
     }
     buttonSurprise[1].className = "button is-rounded is-danger";
     event.target.className = "button is-rounded is-light";
-    // send button select to API
-    var tabSelectEl = foodNavEl.querySelector(".is-active");
-    if (tabSelectEl.id === "food-name") {
-      getFoodByCategory(event.target.textContent);
-    } else if (tabSelectEl.id === "food-type") {
-      getFoodByRegion(event.target.textContent);
-    } else if (tabSelectEl.id === "food-surprise") {
-      getFoodByRandom();
-    }
   }
 });
 var drinkCategoryButtons = document.querySelector("#buttons-drink-name");
@@ -652,17 +658,9 @@ drinkButtons.addEventListener("click", function (event) {
     }
     buttonSurprise[1].className = "button is-rounded is-link";
     event.target.className = "button is-rounded is-light";
-    // send button select to API
-    var tabSelectEl = drinkNavEl.querySelector(".is-active");
-    if (tabSelectEl.id === "drink-name") {
-      getDrinkByCategory(event.target.textContent);
-    } else if (tabSelectEl.id === "drink-type") {
-      getDrinkByIngredient(event.target.textContent);
-    } else if (tabSelectEl.id === "drink-surprise") {
-      getDrinkByRandom();
-    }
   }
 });
+
 var movieGenreButtons = document.querySelector("#buttons-movie-genre");
 var movieYearButtons = document.querySelector("#buttons-movie-year");
 var movieSurprise = document.querySelector("#buttons-movie-surprise");
@@ -688,6 +686,89 @@ movieButtons.addEventListener("click", function (event) {
     }
   }
 });
+
+var getFood = function () {
+  var buttonsCategory = foodCategoryButtons.childNodes;
+  var buttonsArea = foodAreaButtons.childNodes;
+  var buttonSurprise = foodSurprise.childNodes;
+  for (let i = 0; i < buttonsCategory.length; i++) {
+    if (buttonsCategory[i].className === "button is-rounded is-light") {
+      console.log(buttonsCategory[i].textContent);
+      getFoodByCategory(buttonsCategory[i].textContent);
+    }
+  }
+  for (let i = 0; i < buttonsArea.length; i++) {
+    if (buttonsArea[i].className === "button is-rounded is-light") {
+      getFoodByRegion(buttonsArea[i].textContent);
+    }
+  }
+  if (buttonSurprise.className === "button is-rounded is-light") {
+    getFoodByRandom(buttonSurprise.textContent);
+  }
+};
+var getDrink = function () {
+  var buttonsCategory = drinkCategoryButtons.childNodes;
+  var buttonsIngredients = drinkIngredientsButtons.childNodes;
+  var buttonSurprise = drinkSurprise.childNodes;
+  for (let i = 0; i < buttonsCategory.length; i++) {
+    if (buttonsCategory[i].className === "button is-rounded is-light") {
+      console.log(buttonsCategory[i].textContent);
+      getDrinkByCategory(buttonsCategory[i].textContent);
+    }
+  }
+  for (let i = 0; i < buttonsIngredients.length; i++) {
+    if (buttonsIngredients[i].className === "button is-rounded is-light") {
+      getDrinkByIngredient(buttonsIngredients[i].textContent);
+    }
+  }
+  if (buttonSurprise.className === "button is-rounded is-light") {
+    getDrinkByRandom(buttonSurprise.textContent);
+  }
+};
+
+var genres = "";
+var years = "";
+var getMovie = function () {
+  var buttonsGenre = movieGenreButtons.childNodes;
+  var buttonsYear = movieYearButtons.childNodes;
+  var buttonSurprise = movieSurprise.childNodes;
+  var comma = false;
+  for (let i = 0; i < buttonsGenre.length; i++) {
+    if (buttonsGenre[i].className === "button is-rounded is-dark") {
+      if (comma) {
+        genres += ", " + Genre.getIdByGenre(buttonsGenre[i].textContent);
+        console.log(genres);
+      } else {
+        genres += Genre.getIdByGenre(buttonsGenre[i].textContent);
+        comma = true;
+      }
+    }
+  }
+  for (let i = 0; i < buttonsYear.length; i++) {
+    if (buttonsYear[i].className === "button is-rounded is-dark") {
+      if (comma) {
+        years += ", " + buttonsYear[i].textContent;
+        console.log(genres);
+      } else {
+        years += buttonsYear[i].textContent;
+        comma = true;
+      }
+    }
+  }
+  getMovieData(years, genres, 1);
+};
+getDisplay = async function (event) {
+  window.location.replace("./display.html");
+};
+var submitEl = document.querySelector(".submit-container");
+submitEl.addEventListener("click", function () {
+  getMovie();
+  getFood();
+  getDrink();
+  //wait for API data
+  setTimeout(getDisplay, 2000);
+});
+
 // Event listener to chnage button colors end
 localStorage.setItem("test", "testing");
 // Troy Grossi

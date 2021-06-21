@@ -18,6 +18,12 @@ var drinkIngredientsSecondEl = document.querySelector(
 var drinkInstructionsEl = document.querySelector(".drink-instructions");
 var drinkImageEl = document.querySelector(".drink-image");
 var drinkNameEl = document.querySelector(".drink-name");
+// Movie Variables
+var movieTitleEl = document.querySelector(".movie-title");
+var movieYearEl = document.querySelector(".year");
+var movieGenreEl = document.querySelector(".genre");
+var movieOverviewEl = document.querySelector(".movie-description");
+var movieImageEl = document.querySelector(".movie-image");
 // Date Object
 var date = JSON.parse(localStorage.getItem("date"));
 console.log(date);
@@ -75,6 +81,21 @@ var setDrinkImage = function () {
   drinkImageEl.setAttribute("src", date[1].image);
 };
 
+var setMovieTitle = function () {
+  movieTitleEl.textContent = date[2].title;
+};
+var setMovieYear = function () {
+  movieYearEl.textContent = date[2].year;
+};
+var setMovieGenre = function () {
+  movieGenreEl.textContent = date[2].genre;
+};
+var setMovieOverview = function () {
+  movieOverviewEl.textContent = date[2].overview;
+};
+var setMovieImage = function () {
+  movieImageEl.setAttribute("src", date[2].image);
+};
 setDishName();
 setDishIngredients();
 setDishInstructions();
@@ -84,3 +105,9 @@ setDrinkName();
 setDrinkIngredients();
 setDrinkInstructions();
 setDrinkImage();
+
+setMovieTitle();
+setMovieYear();
+setMovieGenre();
+setMovieOverview();
+setMovieImage();

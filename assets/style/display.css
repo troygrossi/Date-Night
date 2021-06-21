@@ -152,6 +152,13 @@
 .movie-description {
   text-align: center;
 }
+.movie-image-container {
+  display: flex;
+  justify-content: center;
+}
+.movie-image {
+  width: 25%;
+}
 .return-container {
   display: flex;
   align-items: center;
@@ -160,6 +167,7 @@
   width: 100%;
 }
 .return {
+  margin-top: 30px;
   font-weight: bold;
   font-size: 50px;
   width: 200px;
